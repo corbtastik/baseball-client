@@ -22,12 +22,15 @@ public class BaseballClient {
 
     private Random randomizer = new Random();
 
+    /**
+     * Call the player REST API
+     */
     @Scheduled(fixedDelay=5000)
-    public void callAPI() {
+    public void callPlayerApi() {
 
         try {
             if(players.size() > 0) {
-                String response = Http.get(apiRoot + "/player/" + nextPlayerId()).asString();
+                String response = Http.get(apiRoot + "/players/player/" + nextPlayerId()).asString();
                 System.out.println(new Date() + ": " + response);
             }
         } catch (IOException ex) {
@@ -35,6 +38,10 @@ public class BaseballClient {
         }
     }
 
+    /**
+     * Add a player into this client's memory
+     * @param playerId
+     */
     @RequestMapping(method = RequestMethod.POST, path="/players/{playerId}")
     void addPlayer(@PathVariable String playerId) {
         if(!StringUtils.isEmpty(playerId)) {
@@ -42,6 +49,10 @@ public class BaseballClient {
         }
     }
 
+    /**
+     * Remove a player from this client's memory
+     * @param playerId
+     */
     @RequestMapping(method = RequestMethod.DELETE, path="/players/{playerId}")
     void removePlayer(@PathVariable String playerId) {
         if(!StringUtils.isEmpty(playerId)) {
@@ -49,6 +60,10 @@ public class BaseballClient {
         }
     }
 
+    /**
+     * Return a random playerId
+     * @return
+     */
     private String nextPlayerId() {
         int i = randomizer.nextInt(players.size());
         return String.valueOf(players.toArray()[i]);
