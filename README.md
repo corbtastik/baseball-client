@@ -61,37 +61,40 @@ The Eureka Service is the service registry for the Baseball microservices in thi
 
 1. Compile and Run the Eureka Server
 
-``cd eureka-server``
-``mvnw clean package``
-``java -jar target/eureka-server-0.0.1-SNAPSHOT.jar``
+```
+cd eureka-server
+mvnw clean package
+java -jar target/eureka-server-0.0.1-SNAPSHOT.jar
+```
 
 2. Compile and Run the Baseball API Gateway
 
-``cd baseball-api``
-``mvnw clean package``
-``java -jar target/baseball-api-0.0.1-SNAPSHOT.jar``
+```
+cd baseball-api
+mvnw clean package
+java -jar target/baseball-api-0.0.1-SNAPSHOT.jar
+```
 
 3. Compile and Run the Players REST Service
 
-``cd players``
-``mvnw clean package``
-``java -jar target/players-0.0.1-SNAPSHOT.jar --server.port=7001``
+```
+cd players
+mvnw clean package
+java -jar target/players-0.0.1-SNAPSHOT.jar --server.port=7001
+```
 
 4. Compile and Run the Batting REST Service
 
-``cd batting``
-``mvnw clean package``
-``java -jar target/batting-0.0.1-SNAPSHOT.jar --server.port=8001``
+```
+cd batting
+mvnw clean package
+java -jar target/batting-0.0.1-SNAPSHOT.jar --server.port=8001
+```
 
 5. Compile and Run the Baseball client
 
-``cd baseball-client``
-``mvnw clean package``
-``java -jar target/baseball-client-0.0.1-SNAPSHOT.jar``
-
-
-
-
-
-
-
+```
+cd baseball-client
+mvnw clean package
+java -jar target/baseball-client-0.0.1-SNAPSHOT.jar
+```
